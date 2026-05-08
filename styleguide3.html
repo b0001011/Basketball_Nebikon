@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basketball Nebikon | Design System</title>
+    <!-- Fonts: Inter für Lesbarkeit, Archivo Black für den massiven Basketball-Look -->
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* THEME VARIABLES */
+        
+         :root {
+            /* Branding (Bleibt gleich) */
+            --brand-orange: #F58220;
+            /* Basketball Orange */
+            --brand-cyan: #00AEEF;
+            /* Lightning Blue */
+            --brand-navy: #0B1B32;
+            /* Logo Deep Blue */
+            /* Light Mode Default */
+            --bg-color: #FFFFFF;
+            --section-bg: #F8F9FA;
+            --text-main: #1A1A1A;
+            --text-muted: #666666;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        /* Dark Mode Override */
+        
+        [data-theme="dark"] {
+            --bg-color: #0F172A;
+            --section-bg: #1E293B;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --card-bg: #1E293B;
+            --border: #334155;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        /* THEME TOGGLE */
+        
+        .theme-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--brand-navy);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 12px;
+            z-index: 100;
+            border: 2px solid var(--brand-orange);
+        }
+        /* HEADER & LOGO VIBE */
+        
+        header {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(to bottom, var(--section-bg), transparent);
+        }
+        
+        .logo-text {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 4rem;
+            line-height: 0.9;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            margin-bottom: 10px;
+        }
+        
+        .logo-text span {
+            color: var(--brand-orange);
+        }
+        
+        .lightning-text {
+            color: var(--brand-cyan);
+            font-size: 1.2rem;
+            display: block;
+            letter-spacing: 5px;
+        }
+        /* SECTION STYLING */
+        
+        section {
+            margin-bottom: 60px;
+        }
+        
+        h2 {
+            font-family: 'Archivo Black', sans-serif;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+        }
+        
+        h2::before {
+            content: '';
+            width: 30px;
+            height: 4px;
+            background: var(--brand-orange);
+            margin-right: 15px;
+        }
+        /* COLORS */
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .color-card {
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 800;
+            border: 1px solid var(--border);
+        }
+        /* BUTTONS */
+        
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--brand-orange);
+            color: white;
+            margin-right: 10px;
+            box-shadow: 0 4px 0 #c4681a;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #c4681a;
+        }
+        
+        .btn-primary:active {
+            transform: translateY(2px);
+            box-shadow: 0 0 0 #c4681a;
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--brand-navy);
+            color: var(--text-main);
+            background: transparent;
+        }
+        
+        [data-theme="dark"] .btn-outline {
+            border-color: var(--brand-cyan);
+            color: var(--brand-cyan);
+        }
+        /* CARDS (Training/Spiele) */
+        
+        .info-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .info-card::after {
+            content: '🏀';
+            position: absolute;
+            right: -10px;
+            bottom: -10px;
+            font-size: 5rem;
+            opacity: 0.05;
+            transform: rotate(-20deg);
+        }
+        /* TEXT SAMPLES */
+        
+        .type-sample {
+            margin-bottom: 10px;
+        }
+        
+        .big-label {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 3rem;
+            opacity: 0.1;
+            text-transform: uppercase;
+        }
+        /* RESPONSIVE */
+        
+        @media (max-width: 600px) {
+            .logo-text {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body data-theme="light">
+
+    <button class="theme-switch" onclick="toggleTheme()">SWITCH MODE</button>
+
+    <header>
+        <div class="container">
+            <span class="lightning-text">BASKETBALL</span>
+            <h1 class="logo-text">NEBI<span>KON</span></h1>
+            <p style="font-weight: 600; opacity: 0.7;">Ready for the next level?</p>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- 01 FARBEN -->
+        <section>
+            <h2>Color Palette</h2>
+            <div class="grid">
+                <div class="color-card" style="background: var(--brand-orange); color: white;">ORANGE<br>#F58220</div>
+                <div class="color-card" style="background: var(--brand-navy); color: white;">NAVY BLUE<br>#0B1B32</div>
+                <div class="color-card" style="background: var(--brand-cyan); color: white;">LIGHTNING<br>#00AEEF</div>
+            </div>
+        </section>
+
+        <!-- 02 TYPOGRAFIE -->
+        <section>
+            <h2>Typography</h2>
+            <div class="type-sample">
+                <p class="big-label">Game Day</p>
+                <h3 style="font-family: 'Archivo Black', sans-serif; font-size: 2rem; margin-top: -30px;">Archivo Black</h3>
+                <p>Nutzen wir für Headlines, Teamnamen und wichtige Zahlen.</p>
+            </div>
+            <div class="type-sample" style="margin-top: 40px;">
+                <p class="big-label">Player Info</p>
+                <h3 style="font-family: 'Inter', sans-serif; font-weight: 800; font-size: 1.5rem; margin-top: -30px;">Inter ExtraBold</h3>
+                <p style="max-width: 600px;">Unsere Fließtext-Schrift. Sauber, modern und perfekt lesbar auf Alberts Smartphone (iPhone/Android).</p>
+            </div>
+        </section>
+
+        <!-- 03 COMPONENTS -->
+        <section>
+            <h2>Interactive Elements</h2>
+            <div style="margin-bottom: 40px;">
+                <p style="margin-bottom: 15px; font-weight: bold;">Main Buttons</p>
+                <a href="#" class="btn btn-primary">Probetraining buchen</a>
+                <a href="#" class="btn btn-outline">Spielplan</a>
+            </div>
+
+            <div class="grid">
+                <div class="info-card">
+                    <p style="color: var(--brand-orange); font-weight: 800; font-size: 0.8rem; text-transform: uppercase;">Next Event</p>
+                    <h4 style="font-size: 1.2rem; margin: 5px 0;">Home Game vs. Emmen</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Sa. 25. März | 19:00 Uhr<br>Turnhalle Nebikon</p>
+                </div>
+                <div class="info-card">
+                    <p style="color: var(--brand-cyan); font-weight: 800; font-size: 0.8rem; text-transform: uppercase;">Training</p>
+                    <h4 style="font-size: 1.2rem; margin: 5px 0;">U16 Junioren</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Jeden Dienstag<br>18:00 - 20:00 Uhr</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+        }
+    </script>
+
+</body>
+
+</html>

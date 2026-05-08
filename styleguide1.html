@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styleguide | Basketball Nebikon</title>
+    <!-- Fonts: Bebas Neue für Sport-Vibe, Montserrat für Lesbarkeit -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+         :root {
+            /* PRIMARY COLORS (Aus dem Logo abgeleitet) */
+            --color-dark-blue: #0B1B32;
+            /* Hintergrund / Tiefe */
+            --color-orange: #F58220;
+            /* Basketball / Action */
+            --color-cyan: #00AEEF;
+            /* Blitze / Akzente */
+            --color-white: #FFFFFF;
+            --color-gray-light: #F4F4F4;
+            --color-gray-dark: #333333;
+            /* TYPOGRAPHY */
+            --font-heading: 'Bebas Neue', cursive;
+            --font-body: 'Montserrat', sans-serif;
+            /* SPACING */
+            --space-xs: 0.5rem;
+            --space-m: 1.5rem;
+            --space-xl: 3rem;
+            /* MISC */
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            --radius: 4px;
+            /* Eher kantig/sportlich statt zu rund */
+        }
+        
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--color-gray-dark);
+            margin: 0;
+            background-color: var(--color-white);
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: var(--space-xl) var(--space-m);
+        }
+        
+        header {
+            background: var(--color-dark-blue);
+            color: white;
+            padding: var(--space-xl) 0;
+            text-align: center;
+            border-bottom: 5px solid var(--color-orange);
+        }
+        
+        section {
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-m);
+            border-bottom: 1px solid #eee;
+        }
+        
+        h1,
+        h2,
+        h3 {
+            font-family: var(--font-heading);
+            letter-spacing: 1px;
+            margin-bottom: var(--space-m);
+        }
+        
+        .section-title {
+            color: var(--color-dark-blue);
+            font-size: 2.5rem;
+            border-left: 8px solid var(--color-orange);
+            padding-left: 15px;
+        }
+        /* COLORS GRID */
+        
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+        
+        .color-card {
+            padding: 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            box-shadow: var(--shadow);
+        }
+        /* BUTTONS */
+        
+        .btn-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            border-radius: var(--radius);
+        }
+        
+        .btn-primary {
+            background-color: var(--color-orange);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #d66d10;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(245, 130, 32, 0.4);
+        }
+        
+        .btn-secondary {
+            background-color: var(--color-cyan);
+            color: white;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--color-dark-blue);
+            color: var(--color-dark-blue);
+        }
+        /* FORM ELEMENTS */
+        
+        .form-group {
+            max-width: 400px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid var(--color-gray-light);
+            border-radius: var(--radius);
+            font-family: var(--font-body);
+        }
+        
+        input:focus {
+            border-color: var(--color-cyan);
+            outline: none;
+        }
+        /* CARDS / BOXES */
+        
+        .card {
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 20px;
+            border-top: 4px solid var(--color-orange);
+            max-width: 300px;
+        }
+        /* MOBILE PREVIEW */
+        
+        .mobile-view {
+            width: 375px;
+            height: 200px;
+            border: 10px solid #333;
+            border-radius: 20px;
+            padding: 10px;
+            overflow: hidden;
+            background: var(--color-gray-light);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Basketball Nebikon Styleguide</h1>
+        <p>Design-System für das Projekt von Berat & Khalil</p>
+    </header>
+
+    <div class="container">
+
+        <!-- FARBEN -->
+        <section>
+            <h2 class="section-title">01 Farben</h2>
+            <div class="color-grid">
+                <div class="color-card" style="background-color: var(--color-dark-blue);">Dark Blue<br>#0B1B32</div>
+                <div class="color-card" style="background-color: var(--color-orange);">Orange<br>#F58220</div>
+                <div class="color-card" style="background-color: var(--color-cyan);">Cyan<br>#00AEEF</div>
+                <div class="color-card" style="background-color: var(--color-gray-dark);">Text Dark<br>#333333</div>
+            </div>
+        </section>
+
+        <!-- TYPOGRAFIE -->
+        <section>
+            <h2 class="section-title">02 Typografie</h2>
+            <h1 style="font-size: 3.5rem; margin:0;">Überschrift H1 (Bebas Neue)</h1>
+            <h2 style="font-size: 2.5rem; color: var(--color-orange);">Überschrift H2 Sportlich</h2>
+            <p>Body Text: Montserrat. "Albert nutzt hauptsächlich sein Smartphone und erwartet eine übersichtliche Website mit schnellen Informationen."</p>
+            <p><strong>Fetter Text für wichtige Infos wie Trainingszeiten.</strong></p>
+        </section>
+
+        <!-- BUTTONS -->
+        <section>
+            <h2 class="section-title">03 Interaktion (Buttons)</h2>
+            <p>Wichtig für Albert: Die Call-to-Action muss sofort ins Auge springen.</p>
+            <div class="btn-container">
+                <a href="#" class="btn btn-primary">Jetzt Probetraining anmelden</a>
+                <a href="#" class="btn btn-secondary">Spielplan ansehen</a>
+                <a href="#" class="btn btn-outline">Mehr Infos</a>
+            </div>
+        </section>
+
+        <!-- FORMULAR STIL -->
+        <section>
+            <h2 class="section-title">04 Formular-Stil</h2>
+            <div class="form-group">
+                <label>Dein Name</label>
+                <input type="text" placeholder="Albert Müller">
+                <label>E-Mail Adresse</label>
+                <input type="email" placeholder="albert@schule-nebikon.ch">
+                <button class="btn btn-primary" style="width:100%">Anmeldung Absenden</button>
+            </div>
+        </section>
+
+        <!-- KOMPONENTEN -->
+        <section>
+            <h2 class="section-title">05 UI-Komponenten</h2>
+            <div class="card">
+                <h3 style="margin-top:0">Nächstes Spiel</h3>
+                <p>Nebikon vs. Sursee<br>Samstag, 14:00 Uhr</p>
+                <a href="#" style="color: var(--color-cyan); font-weight:bold; text-decoration:none;">Details ></a>
+            </div>
+        </section>
+
+        <!-- MOBILE FIRST HINWEIS -->
+        <section>
+            <h2 class="section-title">06 Mobile-First Check</h2>
+            <p>Albert schaut auf dem Handy. So wirkt die Navigation:</p>
+            <div class="mobile-view">
+                <div style="background: var(--color-dark-blue); color:white; padding:5px; display:flex; justify-content:space-between;">
+                    <span>NEBIKON 🏀</span>
+                    <span>☰</span>
+                </div>
+                <div style="padding:10px; text-align:center;">
+                    <h3 style="font-size:1.2rem">Werde ein Pro!</h3>
+                    <button class="btn btn-primary" style="padding:5px 10px; font-size:0.8rem;">Anmelden</button>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Styleguide | Basketball Nebikon</title>
+
+    <!-- Fonts: Syncopate für Tech-Vibe, Inter für maximale Modernität -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+         :root {
+            /* BRAND COLORS - ULTRA NEON EDITION */
+            --bg-dark: #050A12;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --primary-orange: #FF8C00;
+            --primary-cyan: #00F2FF;
+            --white: #FFFFFF;
+            --accent-gradient: linear-gradient(135deg, var(--primary-cyan), var(--primary-orange));
+            /* EFFECTS */
+            --neon-shadow-cyan: 0 0 20px rgba(0, 242, 255, 0.4);
+            --neon-shadow-orange: 0 0 20px rgba(255, 140, 0, 0.4);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* ANIMATIONS */
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 rgba(0, 242, 255, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px rgba(0, 242, 255, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 rgba(0, 242, 255, 0);
+            }
+        }
+        
+        @keyframes lightningStrike {
+            0%,
+            100% {
+                opacity: 1;
+                filter: brightness(1);
+            }
+            50% {
+                opacity: 0.8;
+                filter: brightness(1.5) drop-shadow(0 0 10px var(--primary-cyan));
+            }
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 10% 20%, rgba(0, 242, 255, 0.05) 0%, transparent 20%), radial-gradient(circle at 90% 80%, rgba(255, 140, 0, 0.05) 0%, transparent 20%);
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        /* LOGO INTEGRATION */
+        
+        .logo-box {
+            text-align: center;
+            margin-bottom: 80px;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .logo-placeholder {
+            font-family: 'Syncopate', sans-serif;
+            font-weight: 700;
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            display: inline-block;
+            position: relative;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: lightningStrike 2s infinite;
+        }
+        /* SECTION STYLES */
+        
+        section {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 40px;
+            animation: fadeIn 1.2s ease-out;
+        }
+        
+        h2 {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            color: var(--primary-cyan);
+            border-bottom: 1px solid rgba(0, 242, 255, 0.2);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        /* COLOR BUBBLES */
+        
+        .color-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .color-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .color-circle:hover {
+            transform: scale(1.2) rotate(10deg);
+            box-shadow: var(--neon-shadow-cyan);
+        }
+        /* BUTTONS - HIGH END */
+        
+        .btn-list {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-modern {
+            position: relative;
+            padding: 18px 40px;
+            background: transparent;
+            color: white;
+            text-transform: uppercase;
+            font-family: 'Syncopate', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            overflow: hidden;
+            transition: 0.4s;
+            z-index: 1;
+            border-radius: 12px;
+        }
+        
+        .btn-modern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-gradient);
+            z-index: -1;
+            transition: 0.4s;
+        }
+        
+        .btn-modern:hover {
+            letter-spacing: 2px;
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.6);
+            transform: translateY(-5px);
+        }
+        /* NEON CARD */
+        
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: var(--glass-border);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 350px;
+            transition: 0.3s;
+        }
+        
+        .card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: var(--primary-cyan);
+            box-shadow: var(--neon-shadow-cyan);
+        }
+        /* TYPO SHOWCASE */
+        
+        .typo-showcase h3 {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 4rem;
+            line-height: 1;
+            margin-bottom: 10px;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+            color: transparent;
+        }
+        
+        .typo-showcase h3.filled {
+            color: white;
+            -webkit-text-stroke: 0;
+        }
+        
+        .input-modern {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            color: white;
+            width: 100%;
+            max-width: 300px;
+            transition: 0.3s;
+        }
+        
+        .input-modern:focus {
+            outline: none;
+            border-color: var(--primary-cyan);
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- HEADER MIT LOGO -->
+        <div class="logo-box">
+            <div class="logo-placeholder">NEBIKON</div>
+            <p style="letter-spacing: 5px; font-weight: 300; opacity: 0.6; margin-top: 10px;">BASKETBALL EVOLUTION</p>
+        </div>
+
+        <!-- FARBEN -->
+        <section>
+            <h2>01 Visual Identity</h2>
+            <div class="color-row">
+                <div class="color-circle" style="background: var(--bg-dark);">#050A12</div>
+                <div class="color-circle" style="background: var(--primary-cyan); color: #000;">CYAN</div>
+                <div class="color-circle" style="background: var(--primary-orange);">ORANGE</div>
+                <div class="color-circle" style="background: var(--white); color: #000;">WHITE</div>
+            </div>
+        </section>
+
+        <!-- TYPOGRAFIE -->
+        <section class="typo-showcase">
+            <h2>02 Typography</h2>
+            <h3>POWER</h3>
+            <h3 class="filled">ENERGY</h3>
+            <p style="font-size: 1.2rem; max-width: 600px; line-height: 1.8; opacity: 0.8;">
+                Wir nutzen <strong>Syncopate</strong> für Schlagworte und <strong>Inter</strong> für den Content. Dieser Mix wirkt technologisch fortschrittlich und extrem sauber auf Mobile-Geräten.
+            </p>
+        </section>
+
+        <!-- BUTTONS & INTERAKTION -->
+        <section>
+            <h2>03 High-Performance Buttons</h2>
+            <div class="btn-list">
+                <button class="btn-modern">Join the Team</button>
+                <div style="font-family: 'Syncopate'; cursor: pointer; color: var(--primary-orange); border-bottom: 2px solid var(--primary-orange);">
+                    View Schedule →
+                </div>
+            </div>
+        </section>
+
+        <!-- UI ELEMENTE -->
+        <section>
+            <h2>04 Next-Gen Elements</h2>
+            <div style="display: flex; gap: 30px; flex-wrap: wrap;">
+                <div class="card">
+                    <span style="color: var(--primary-cyan); font-size: 0.8rem; font-weight: bold;">LIVE UPDATE</span>
+                    <h4 style="margin: 10px 0; font-size: 1.5rem;">Training startet in 2h</h4>
+                    <p style="opacity: 0.6; font-size: 0.9rem;">Sporthalle Nebikon, 18:30 Uhr. Bring deine Energy mit!</p>
+                </div>
+
+                <div class="card" style="display: flex; flex-direction: column; justify-content: center;">
+                    <label style="font-size: 0.7rem; margin-bottom: 10px; opacity: 0.5;">Quick Registration</label>
+                    <input type="text" class="input-modern" placeholder="Dein Username...">
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+
+</html>
